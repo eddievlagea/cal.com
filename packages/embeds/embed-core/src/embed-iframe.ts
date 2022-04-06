@@ -117,6 +117,7 @@ export const useEmbedStyles = (elementName: ElementName) => {
 
 export const useIsBackgroundTransparent = () => {
   let isBackgroundTransparent = false;
+  // TODO: Background should be read as ui.background and not ui.body.background
   const bodyEmbedStyles = useEmbedStyles("body");
 
   if (bodyEmbedStyles.background === "transparent") {
@@ -126,9 +127,9 @@ export const useIsBackgroundTransparent = () => {
 };
 
 export const useBrandColors = () => {
+  // TODO: Branding shouldn't be part of ui.styles. It should exist as ui.branding.
   const brandingColors = useEmbedStyles("branding");
-  const brandColor = brandingColors.background;
-  return brandColor;
+  return brandingColors;
 };
 
 const getNamespace = () => {
